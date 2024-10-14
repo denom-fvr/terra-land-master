@@ -5,7 +5,6 @@ import { Button } from "../common/Button";
 import Table from "../tables/Table";
 import Modal from "../common/Modal";
 import FormInput from "../forms/FormInput";
-import SHA256 from "crypto-js/sha256"; // Import the hashing function
 
 interface Document {
   id: number;
@@ -65,7 +64,7 @@ export default function DataTableWithForm() {
     const { full_name, serial_number, national_id_number, latitudinal_location, longitudinal_location } = formInputData;
 
     // Generate the hash key
-    const hashKey = SHA256(
+    const hashKey = (
       `${full_name}${serial_number}${national_id_number}${latitudinal_location}${longitudinal_location}`
     ).toString();
 
